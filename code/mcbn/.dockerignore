@@ -1,0 +1,5 @@
+**/.git
+**/.ipynb_checkpoints
+**/env
+**/docker_env
+evaluation.log

@@ -1,0 +1,10 @@
+.idea/
+.ipynb_checkpoints/
+*.pyc
+*.png
+env/
+docker_env/
+results/
+evaluations/
+evaluation.log
+**/train_cv-test/

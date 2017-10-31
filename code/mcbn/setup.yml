@@ -1,0 +1,98 @@
+# DATASETS
+# Datasets to evaluate
+datasets:
+ - bostonHousing
+ - concrete
+ - energy
+ - kin8nm
+ - power-plant
+ - protein-tertiary-structure
+ - wine-quality-red
+ - yacht
+
+
+# EVALUATION DESIGN
+# Fraction of all data in test set
+test_fraction: 0.2
+split_seed: 1 # Seed for test data vs. training_CV split
+
+# n_folds: N.o. folds to use in CV
+# inverted_cv_fraction: (1/fraction) of training_CV data used for CV.
+# So if n_folds is 2, but inverted_cv_fraction is 5, we use 2 CV folds, each of size 1/5*len(training_CV).
+n_folds: 5
+inverted_cv_fraction: 5
+
+# Models to train: pick one or more of MCBN, MCDO, BN, DO.
+# Note: MCBN and MCDO will also train CUBN and CUDO respectively.
+models:
+- MCBN
+- BN
+- MCDO
+- DO
+
+# HYPERPARAMETER CV SETTINGS
+# Early stopping settings for hyperparam evaluations.
+hyperparam_eval_interval: 20
+patience: 10
+global_max_epochs: 2000
+
+# Hyperparameter ranges for CV optimization
+# Note: Energy capped since otherwise batch size 1024 is consistently selected for BN and MCBN,
+# which due to the size of the dataset makes MCBN identical to CUBN in testing.
+dropouts: [0.2, 0.1, 0.05, 0.01, 0.005, 0.001]
+batch_sizes: [32, 64, 128, 256, 512, 1024]
+batch_sizes_specific:
+  energy: [32, 64, 128, 256, 512]
+
+lambda_max: 1.0e-1
+lambda_min: 1.0e-15
+dropout_batch_size: 32 # Fixed for Dropout
+
+
+# MODEL CONFIG
+# Common model configurations
+n_hidden: 2
+nonlinearity: relu
+learning_rate: 0.001
+mc_samples: 500
+
+# N.o. units in hidden layers. Can be set to specific values for datasets, otherwise k is used
+# n_epochs: n.o. epochs
+k: 50
+k_specific: {'protein-tertiary-structure': 100}
+
+
+# MODEL TRAINING SETTINGS
+# Dimension-wise normalization of dataset inputs and/or outputs
+normalize_X: True
+normalize_y: True
+
+# Whether or not to discard leftover examples < batch size at end of each epoch.
+# If true, discard before new epoch
+# If false, last batch can have smaller size
+discard_leftovers: True
+
+
+# TAU OPTIMIZATION SETTINGS
+# Maximum optimization iterations for tau (100 is never reached)
+tau_opt_metric: CRPS
+tau_opt_n_random_calls: 100
+tau_opt_n_total_calls: 200
+
+# Set tau range for each dataset
+tau_range:
+  bostonHousing: [0.01, 10.0]
+  concrete: [0.001, 10.0]
+  energy: [0.01, 100.0]
+  kin8nm: [10.0, 1000.0]
+  power-plant: [0.01, 10.0]
+  protein-tertiary-structure: [0.01, 10.0]
+  wine-quality-red: [0.01, 10.0]
+  yacht: [0.01, 100.0]
+
+
+# TEST SET EVALUATION SETTINGS
+# test_eval_interval: Intervals between evaluations for test set (convenient if you want to plot progress)
+# n_testruns: n.o. test set evaluations using different seeds for numpy and tf before training and evaluation
+test_eval_interval: 50
+n_testruns: 5

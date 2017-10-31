@@ -1,0 +1,13 @@
+jupyter==1.0.0
+jupyter-client==5.1.0
+jupyter-console==5.1.0
+jupyter-core==4.3.0
+matplotlib==2.0.2
+notebook==5.0.0
+numpy==1.13.1
+pandas==0.20.3
+properscoring==0.1
+PyYAML==3.12
+scipy==0.19.1
+seaborn==0.8
+tensorflow==1.1.0
