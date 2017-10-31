@@ -2,7 +2,7 @@
 ### The codes associated with generating the results of the above paper are released in this repository for reproducability purposes.
 
 #### MCBN Uncertainty quality evaluation on regression datasets
-**code/mcbn:** This part of the code runs the to make the uncertainty quality evaluation (normalized CRPS and PLL) in Table 2 of the paper. In addition to a tensorflow implementation of MCBN, this includes an implementation of Monte Carlo Dropout (MCDO) by Gal & Ghahramani (see https://github.com/yaringal/DropoutUncertaintyExps). The evaluation datasets are included in the repository and are from the [UC Irvine Machine Learning Repository](http://archive.ics.uci.edu/ml/index.php) and the [Delve Datasets](http://www.cs.toronto.edu/~delve/data/datasets.html).
+**code/mcbn:** This part of the code runs the uncertainty quality evaluation (normalized CRPS and PLL) in Table 2 of the paper. In addition to a tensorflow implementation of MCBN, this includes an implementation of Monte Carlo Dropout (MCDO) by Gal & Ghahramani (see https://github.com/yaringal/DropoutUncertaintyExps). The evaluation datasets are included in the repository and are from the [UC Irvine Machine Learning Repository](http://archive.ics.uci.edu/ml/index.php) and the [Delve Datasets](http://www.cs.toronto.edu/~delve/data/datasets.html).
 
 The full experiment consists of running 7 jupyter notebooks in sequence. This can be executed in two ways:
 
