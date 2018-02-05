@@ -1,4 +1,4 @@
-# Bayesian Uncertainty Estimation for Batch Normalized Deep Networks, ICLR 2018 Conference-Track Submission
+# Bayesian Uncertainty Estimation for Batch Normalized Deep Networks, ICML 2018 Conference Submission
 ### The codes associated with generating the results of the above paper are released in this repository for reproducability purposes.
 
 #### MCBN Uncertainty quality evaluation on regression datasets
