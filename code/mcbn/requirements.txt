@@ -11,3 +11,4 @@ PyYAML==3.12
 scipy==0.19.1
 seaborn==0.8
 tensorflow==1.1.0
+progressbar==2.3
