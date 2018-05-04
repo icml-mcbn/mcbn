@@ -8,3 +8,5 @@ results/
 evaluations/
 evaluation.log
 **/train_cv-test/
+mnf_logs/
+mnf_results/
