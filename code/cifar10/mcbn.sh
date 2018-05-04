@@ -1,0 +1,1 @@
+python resnet_main.py  --train_data_path=cifar-10-batches-bin/data_batch* --eval_data_path=cifar-10-batches-bin/test_batch.bin --log_root=logs/ --train_dir=eval/ --dataset='cifar10' --num_gpus=1 --mode='mcbn' --mcbn_batch_size=3 --mcbn_num_trials=16
